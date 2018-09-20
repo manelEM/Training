@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+	
+<p:dataTable id="tabSt" value="#{studentCtrl.allStudent}" var="st" selectionMode="single" rowKey="#{st.id}" paginator="true" rows="3">
+  
+    <p:column headerText="Name">
+        <h:outputText value="#{st.name }" />
+    </p:column>
+ 
+    <p:column headerText="Phone number">
+        <h:outputText value="#{st.id}" />
+    </p:column>
+ 
+    <p:column headerText="Email">
+        <h:outputText value="#{st.email}" />
+    </p:column>
+   
+</p:dataTable>
+<h:form id="f">
+<p:panelGrid  border="0" columns="2">
+
+<h:outputText value="name :"></h:outputText>
+<p:inputText value="#{studentCtrl.student.name }"/>
+<h:outputText value="email :"></h:outputText>
+<p:inputText value="#{studentCtrl.student.email }"/>
+<h:outputText value="phone number :"></h:outputText>
+<p:inputText value="#{studentCtrl.student.id }"/>
+<p:commandButton value="register" action="#{studentCtrl.registerStudent }" update=":tabSt,f"/>
+<p:commandButton value="cancel" onclick=""/>
+</p:panelGrid>
+</h:form>
+</h:body>
+</html>
+
+
+
